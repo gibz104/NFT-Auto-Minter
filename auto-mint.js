@@ -9,8 +9,6 @@ const KAIJU_ADDRESS = "0x1685133a98e1d4fc1fe8e25b7493d186c37b6b24"; // NFT smart
 var TX_SENT = false;
 
 const Kaiju = new web3.eth.Contract(KAIJU_ABI, KAIJU_ADDRESS);
-const mintFunction = "0xa0712d68";
-const mintAmount = 5;
 
 async function sendTx(cost) {
     // Send mint transaction with predefined gas
@@ -24,7 +22,7 @@ async function sendTx(cost) {
         'gas': 750000,
         'gasPrice': 100000000000,
         'nonce': nonce,
-        'data' : '0xa0712d680000000000000000000000000000000000000000000000000000000000000005'
+        'data' : '0xa0712d680000000000000000000000000000000000000000000000000000000000000001'
     };
 
     const signedTx = await web3.eth.accounts.signTransaction(transaction, PRIVATE_KEY);
