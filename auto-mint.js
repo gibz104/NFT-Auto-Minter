@@ -57,8 +57,7 @@ async function main() {
         var totalSupply = await Kaiju.methods.totalSupply().call();
         console.log(saleActive, " : ", totalSupply, " : ", web3.utils.fromWei(price, "ether"), " ETH");
 
-        // Send transaction to mint if sale is active and tx has not been sent yet
-        //   totalSupply check is avoid minting when there are none left to mint
+        // Send mint transaction if sale is active and total minted is less than max supply 
         if (saleActive == true && TX_SENT == false && totalSupply <= 3200)  {
             TX_SENT = true;
             const receipt = await sendTx(price);
